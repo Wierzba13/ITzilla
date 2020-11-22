@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog o wszystkim co zwiazane z komputerami :D">
+    <meta name="keywords" content="Blog, IT, pc, programming, programowanie, gry, premiery">
+    <meta name="author" content="Raul Wierzbinski">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="/css/login.css">
+    <title><%= Title %></title>
+</head>
+<body class="black white-text ">
+<%- include('./modules/nav.ejs') %>
+
+<section class="container row login--section">
+    
+    <form class="col s10 m8 l6 login--form" action="/login" method="POST">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="login" name="login" type="text" class="validate white-text">
+                <label for="login" class="white-text">Login</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="password" name="password" type="password" class="validate white-text">
+                <label for="pass" class="white-text">Hasło</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <p class="center red-text">
+                    <% if (badData != '') { %>
+                        <%= badData %>
+                    <% } %>
+                </p>
+            </div>
+        </div>
+
+        <div class="row btn--row">
+            <input type="submit" value="Zaloguj" name="send" id="send" class="btn light-blue darken-4 waves-effect waves-light">
+        </div>
+      </form>
+
+</section>
+
+<%- include('./modules/footer.ejs') %>

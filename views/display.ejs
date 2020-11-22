@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog o wszystkim co zwiazane z komputerami :D">
+    <meta name="keywords" content="Blog, IT, pc, programming, programowanie, gry, premiery">
+    <meta name="author" content="Raul Wierzbinski">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="/css/blogPage.css">
+    <title><%= Title %></title>
+</head>
+<body class="black white-text ">
+    <div class="navbar-fixed">
+        <nav class="nav-wraper light-blue darken-4">
+            <div class="container">
+                <a href="/" class="brand-logo hide-on-med-and-down heading--title">ITzilla</a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="/">Strona główna</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav light-blue darken-4 center center-align" id="mobile-links">
+        <li>
+            <h3>
+                <a href="/" class="white-text heading--title">ITzilla</a>
+            </h3>
+        </li>
+        <li><a href="/blog" class="white-text">Blog</a></li>
+        <div class="center mobile--nav__icons">
+            <li class="center"><a class="white-text center-align"><i class="material-icons Tiny white-text">location_city</i> Miasto, ul. nazwa 3/8</a></li>
+            <li class="center"><a class="white-text center-align"><i class="material-icons Tiny white-text">phone</i>123-456-789</a></li>
+        </div>
+    </ul>
+
+    <section class="container section">
+        <h1 class="left-align heading--title"><%= blog.blogTitle %></h2>
+        <span class="blog--date"><%= blog.createdAt.toLocaleDateString() %></span>
+
+        <div class="blog--content">
+            <%- blog.markedContent %>
+        </div>
+
+        <a href="/blog" class="btn light-blue darken-4 hoverable">Wszystkie blogi</a>
+    </section>
+
+    <footer class="center-align">
+        <p>Wszelkie prawa zastrzeżone, ITZILLA 2020 &copy;</p>
+        <p>Strona stworzona przez <a href="https://github.com/Wierzba13" target="_blank" class="blue-text lighten-3">Raula Wierzbińskiego</a></p>
+    </footer>
+    <script>
+        $(document).ready(function() {
+            $('.sidenav').sidenav();
+        });
+    </script>
+</body>
+</html>

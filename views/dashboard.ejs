@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog o wszystkim co zwiazane z komputerami :D">
+    <meta name="keywords" content="Blog, IT, pc, programming, programowanie, gry, premiery">
+    <meta name="author" content="Raul Wierzbinski">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <title><%= Title %></title>
+</head>
+<body class="black white-text ">
+<%- include('./modules/nav.ejs') %>
+
+<section class="container">
+    <h2 class="left-align">Witaj w panelu admina.</h2>
+
+    <div class="col s12 l4 transparent option--container">
+        <button class="btn light-blue darken-4 hoverable" id="addPost">Dodaj posta</button>
+        <button class="btn light-blue darken-4 hoverable" id="delPost">Usuń posta</button>
+        <button class="btn light-blue darken-4 hoverable" id="addAdmin">Dodaj konto admina</button>
+    </div>
+
+    <form action="/blogs" method="POST" id="addPostForm" class="col s10 m8 l6 login--form">
+        <div class="row">
+            <h4 class="left-align">Dodaj posta</h4>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="blogTitle" name="blogTitle" type="text" class="validate white-text" maxlength="70" data-length="70">
+                <label for="blogTitle" class="white-text">Tytuł</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="snippet" name="snippet" type="text" class="validate white-text" maxlength="140" data-length="140">
+                <label for="snippet" class="white-text">Zapowiedź</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="content" name="content" type="text" class="validate white-text materialize-textarea"></textarea>
+                <label for="content" class="white-text">Treść bloga (markdown)</label>
+            </div>
+        </div>
+        <div class="row btn--row">
+            <input type="submit" value="Dodaj" name="send" id="addPostFormSend" class="btn light-blue darken-4 waves-effect waves-light">
+        </div>
+    </form>
+
+
+    <form action="/blogs/delPost" method="POST" id="delPostForm" class="col s10 m8 l6 login--form">
+        <div class="row">
+            <h4 class="left-align">Usuń posta</h4>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="postID" name="postID" type="number" class="validate white-text">
+                <label for="postID" class="white-text">Podaj ID bloga, aby go usunąć</label>
+            </div>
+        </div>
+        <div class="row btn--row">
+            <input type="submit" value="Usuń" name="send" id="delPostFormSend" class="btn light-blue darken-4 waves-effect waves-light">
+        </div>
+    </form>
+
+    <form action="/blogs/addAdmin" method="POST" id="addAdminForm" class="col s10 m8 l6 login--form">
+        <div class="row">
+            <h4 class="left-align">Dodaj konto admina</h4>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="newAdminLogin" name="newAdminLogin" type="text" class="validate white-text">
+                <label for="newAdminLogin" class="white-text">Login</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="newAdminPassword" name="newAdminPassword" type="password" class="validate white-text">
+                <label for="newAdminPassword" class="white-text">Hasło</label>
+            </div>
+        </div>
+        <div class="row btn--row">
+            <input type="submit" value="Dodaj admina" name="addAdminFormSend" id="send" class="btn light-blue darken-4 waves-effect waves-light">
+        </div>
+    </form>
+</section>
+<script>
+    $(document).ready(function() {
+        $('#blogTitle, #snippet').characterCounter();
+    });
+</script>
+<script src="/scripts/admin.js"></script>
+<%- include('./modules/footer.ejs') %>

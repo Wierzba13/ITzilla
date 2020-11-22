@@ -1,0 +1,28 @@
+{
+  "name": "itzilla",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Raul Wierzbinski",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dompurify": "^2.2.2",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "jsdom": "^16.4.0",
+    "marked": "^1.2.5",
+    "mongoose": "^5.10.14",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "slugify": "^1.4.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

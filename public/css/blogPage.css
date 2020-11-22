@@ -1,0 +1,57 @@
+@import './main.css';
+
+.container { margin-bottom: 150px; }
+.blog--date {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+.blog--content {
+    margin: 130px 0;
+}
+.blog--content h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bree Serif', serif;
+    letter-spacing: 2px;
+}
+.blog--content ul {
+    margin: 30px 10px;
+}
+.blog--content li { 
+    list-style-type: decimal !important;
+    list-style-position: inside;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+.blog--content p {
+    font-size: 1.1rem;
+}
+.blog--content a {
+    color: #2e86de;
+    text-decoration: none;
+}
+.blog--content img {
+    display: block !important;
+    width: 90%;
+    height: auto;
+    max-height: 550px;
+    margin: 30px auto;
+}
+.blog--content blockquote {
+    border-color: #2e86de;
+    font-style: italic;
+}
+.blog--content table {
+    width: 100%;
+    margin: 50px auto;
+    border-collapse: collapse;
+}
+.blog--content table td, 
+.blog--content table th {
+    padding: 10px;
+    border: 1px solid #2e86de;
+    font-size: 1.05rem;
+}
+.blog--content table th {
+    text-align: center;
+}
+.blog--content table th { background-color: #20418d; }
