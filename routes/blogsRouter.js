@@ -1,4 +1,5 @@
 const express = require('express');
+const { isValidObjectId } = require('mongoose');
 const router = express.Router();
 const BlogSchema = require('../models/Blog');
 
@@ -24,8 +25,27 @@ router.post('/', async (req, res) => {
         res.redirect(`/blogs/${blog.slug}`);
     } catch (err) {
         res.redirect('/dashboard');
-        console.log(err)
+        console.log(err);
     }
 });
+router.post('/delPost', (req, res) => {
+    let id = req.body.postID;
+    BlogSchema.findOneAndRemove( { _id: id}, (err) => {
+        if(err) {
+            console.log(err);
+            res.render('dashboard', {
+                Title: 'Admin panel',
+                noBlog: 'Nie znaleziono bloga o podanym ID'
+            });
+            return res.status(500).send();
+        }
+
+        res.render('dashboard', {
+            Title: 'Admin panel',
+            noBlog: ''
+        });
+        return res.status(200).send();
+    });
+})
 
 module.exports = router;

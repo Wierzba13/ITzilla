@@ -12,7 +12,8 @@
     font-family: 'Bree Serif', serif;
     letter-spacing: 2px;
 }
-.blog--content ul {
+.blog--content ul,
+.blog--content ol {
     margin: 30px 10px;
 }
 .blog--content li { 

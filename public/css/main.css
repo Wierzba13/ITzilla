@@ -33,6 +33,35 @@ html {
     font-family: 'Bree Serif', serif;
 }
 
+/* SearchBox */
+.nav-wrapper {
+    height: 60px;
+}
+.search--blog,
+.input-field {
+    height: 100%;
+}
+.search--blog .input-field {
+    border-bottom: 1px solid #103353;
+}
+.input-field input[type="search"]:Focus:not(.browser-default) {
+    background-color: transparent;
+    color: #fff !important;
+    font-size: 1.5rem;
+    box-shadow: 2px 2px 5px #103353,
+                0 0 0 transparent;
+}
+.blogs--box .nav-wrapper .input-field i {
+    color: #fff;
+    cursor: pointer;
+    line-height: 60px;
+}
+.input-field input[type="search"]:Focus:not(.browser-default) + label i,
+.input-field input[type="search"]:Focus:not(.browser-default) ~ .mdi-navigation-close,
+.input-field input[type="search"]:Focus:not(.browser-default) ~ .material-icons {
+    color: #fff !important;
+}
+
 .card-title,
 .second--title {
     font-family: 'Bree Serif', serif;

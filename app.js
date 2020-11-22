@@ -59,7 +59,8 @@ app.get('/login', (req, res) => {
 app.get('/dashboard', (req, res) => {
     if(session.adminIsLogged) {
         res.render('dashboard', {
-            Title: 'Admin panel'
+            Title: 'Admin panel',
+            noBlog: ''
         });
     } else {
         session.adminIsLogged = false;

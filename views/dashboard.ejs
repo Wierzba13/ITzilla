@@ -59,8 +59,17 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="postID" name="postID" type="number" class="validate white-text">
+                <input id="postID" name="postID" type="text" class="validate white-text">
                 <label for="postID" class="white-text">Podaj ID bloga, aby go usunąć</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <p class="center red-text">
+                    <% if (noBlog != '') { %>
+                        <%= noBlog %>
+                    <% } %>
+                </p>
             </div>
         </div>
         <div class="row btn--row">
