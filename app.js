@@ -60,7 +60,8 @@ app.get('/dashboard', (req, res) => {
     if(session.adminIsLogged) {
         res.render('dashboard', {
             Title: 'Admin panel',
-            noBlog: ''
+            noBlog: '',
+            adminReg: ''
         });
     } else {
         session.adminIsLogged = false;
@@ -86,6 +87,29 @@ app.post('/login', (req, res) => {
         }
     }).catch(err => console.log(err));
     
+});
+app.post('/addAdmin', (req, res) => {
+    const username = req.body.newAdminLogin;
+    const password = req.body.newAdminPassword;
+    if(username != '' && password != '') {
+        AdminSchema.insertMany({
+            login: username,
+            password: password
+        });
+        res.render('dashboard', {
+            Title: 'Admin panel',
+            noBlog: '',
+            adminReg: ''
+        });
+    } else {
+        res.render('dashboard', {
+            Title: 'Admin panel',
+            noBlog: '',
+            adminReg: 'Nie udało się dodać konta admina. Wypełnij formularz!'
+        });
+    }
+
+
 });
 app.use('/blogs', blogsRouter);
 

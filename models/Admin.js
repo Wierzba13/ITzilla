@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const AdminSchema = new mongoose.Schema({
-    username: {
+    login: {
         type: String,
         required: true
     },

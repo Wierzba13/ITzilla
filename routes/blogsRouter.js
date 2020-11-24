@@ -35,14 +35,16 @@ router.post('/delPost', (req, res) => {
             console.log(err);
             res.render('dashboard', {
                 Title: 'Admin panel',
-                noBlog: 'Nie znaleziono bloga o podanym ID'
+                noBlog: 'Nie znaleziono bloga o podanym ID',
+                adminReg: ''
             });
             return res.status(500).send();
         }
 
         res.render('dashboard', {
             Title: 'Admin panel',
-            noBlog: ''
+            noBlog: '',
+            adminReg: ''
         });
         return res.status(200).send();
     });
