@@ -8,7 +8,8 @@ const dompurify = createDomPurify(new JSDOM().window);
 const Blog = new mongoose.Schema({
     blogTitle: {
         type: String,
-        required: true
+        required: true,
+        text: true
     },
     createdAt: {
         type: Date,
@@ -20,7 +21,8 @@ const Blog = new mongoose.Schema({
     },
     content: {
         type: String,
-        required: true
+        required: true,
+        text: true
     },
     slug: {
         type: String,

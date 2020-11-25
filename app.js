@@ -108,8 +108,15 @@ app.post('/addAdmin', (req, res) => {
             adminReg: 'Nie udało się dodać konta admina. Wypełnij formularz!'
         });
     }
+});
+app.get('/search-blog', async (req, res) => {
+    let searchInp = req.query.search;
+    let blogsArr = await BlogSchema.find({ $text: { $search: searchInp }});
 
-
+    res.render('blog', {
+        Title: 'Blog',
+        blogs: blogsArr
+    });
 });
 app.use('/blogs', blogsRouter);
 
