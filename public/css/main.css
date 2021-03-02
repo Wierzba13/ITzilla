@@ -10,6 +10,9 @@ html {
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    min-height: 100vh;    
+}
 
 ::-webkit-scrollbar {
     width: 8px;
